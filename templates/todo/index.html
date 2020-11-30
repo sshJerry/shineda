@@ -1,0 +1,42 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+    {# ADDING TASKS SECTION #}
+    <form action="" method="post">
+    {% csrf_token %}
+        <div class="row justify-content-md-center ml-0  mr-0">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add tasks">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">ADD</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {# TASKS SECTION #}
+    {% for todo in todos %}
+        {# TASK ROWS #}
+        <div class="row justify-content-md-center" id="task-border">
+            {# TASK AND CREATED AT #}
+            <div class="col-lg-6 justify-content-start">
+                <p class="h6 font-weight-bold mb-0">{{ todo.task }}</p>
+                <small id="created-text">Created at: {{ todo.created_at }}</small>
+            </div>
+            {# FUNCTION BUTTONS #}
+            <div class="col-lg-6 d-flex justify-content-end align-items-baseline">
+                <button type="button" class="btn btn-success mr-1">Completed</button>
+                {# {% url 'update' %}  | {% url 'delete' %}#}
+                <a href="{% url 'update' todo.id %}" type="button" class="btn btn-primary ml-1 mr-1">Update</a>
+                <a href="{% url 'delete' todo.id %}" type="button" class="btn btn-danger ml-1">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{# TODO Completed with strikethrough. Javascript?  #}

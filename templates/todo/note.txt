@@ -1,0 +1,81 @@
+orignal block:
+                <div class="col-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="">Completed</div>
+                        <div class="">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block"></button>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"></button>
+                    </div>
+                </div>
+            </div>
+
+Original Button:
+                            <span>
+                                <i class="fas fa-check fa-2x border"></i>
+                            </span>
+
+                            <button type="submit" class="btn btn-primary">Test
+                        </button>
+
+Links:
+CheckedBox: https://stackoverflow.com/questions/60313416/replacing-a-checkbox-element-with-icons EXAMPLE: http://jsfiddle.net/pKM3x/
+
+background: transparent url(img/square-regular.svg) no-repeat;
+
+<div class="d-flex flex-column align-items-center"></div> FOR CENTER CHECKBOX
+
+DONE=======================================================================
+            {# Input and Button #}
+            <div class="row">
+                <div class="col-10">
+                    <input type="text" class="form-control" placeholder="">
+
+                </div>
+
+                <div class="col-2 d-flex justify-content-center">
+                    <div class="checkbox">
+                    </div>
+                </div>
+            </div>
+
+DONE=======================================================================
+            <div class="row">
+                <div class="col-10">
+                    {# <input type="text" class="form-control" placeholder=""> #}
+
+                </div>
+
+                <div class="col-2 d-flex justify-content-center">
+                    <div class="checkbox">
+                    </div>
+
+                    {#  <input type="checkbox" value="the_check">#}
+                    {% if form.the_check.value %}
+                    {% endif %}
+
+                </div>
+            </div>
+
+Questions:
+1. delete.html, Should I put everything in a form?
+2. index.html,  input form (Maybe have an add page?)
+3. HTML5 CHECKER action for forms empty error
+4. HTML5 CHECKER error with doctype not being line1
+5. HTML5 CHECKER type button error (index.html)
+6. HTML5 CHECKER Bad character - after <. Probable cause: Unescaped <. Try escaping it as &lt;.
+
+Not Done:
+Completed (Crossed out) Appearance
+Check Mark in Update (Mark is saved in database)
+Large and Small Screen Screen Appearance
+Add Task
+Django best practices
+
+https://fontawesome.com/icons?d=gallery&q=check
+
+URLS (Help with Add and Complete)
+You can create 5 urls/paths one for each of the views’ functions explained above.
+The update, delete and complete urls/paths can capture the task id from the url so that the
+corresponding view functions can use the task id when updating, deleting as well as marking the
+task as completed.
