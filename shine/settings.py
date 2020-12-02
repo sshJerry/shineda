@@ -124,5 +124,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = BASE_DIR / 'static' #Online
-STATICFILES_DIRS = ['static'] #On Computer
+STATIC_ROOT = BASE_DIR / 'static' #Online
+#STATICFILES_DIRS = ['static'] #On Computer
