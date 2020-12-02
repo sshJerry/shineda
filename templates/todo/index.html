@@ -8,35 +8,53 @@
 {% block body %}
     {# ADDING TASKS SECTION #}
     <form action="" method="post">
-    {% csrf_token %}
+        {% csrf_token %}
         <div class="row justify-content-md-center ml-0  mr-0">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Add tasks">
+                {{ form_add.task }}
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">ADD</button>
+                    <input type="submit" value="ADD" class="btn btn-primary" id="index-button">
                 </div>
             </div>
         </div>
     </form>
 
-    {# TASKS SECTION #}
-    {% for todo in todos %}
-        {# TASK ROWS #}
-        <div class="row justify-content-md-center" id="task-border">
-            {# TASK AND CREATED AT #}
-            <div class="col-lg-6 justify-content-start">
+    <form action="" method="post">
+        {% csrf_token %}
+        {# TASKS SECTION #}
+        {% for todo in todos %}
+            {# TASK ROWS #}
+            {% if not todo.completed %}
+                <div class="row justify-content-md-center" id="task-border">
+            {% else %}
+                <div class="row justify-content-md-center" id="task-border"
+                     style="background-color: #eeeeee !important;">
+            {% endif %}
+        {# TASK AND CREATED AT #}
+        <div class="col-lg-6 justify-content-start">
+            {% if not todo.completed %}
                 <p class="h6 font-weight-bold mb-0">{{ todo.task }}</p>
                 <small id="created-text">Created at: {{ todo.created_at }}</small>
-            </div>
-            {# FUNCTION BUTTONS #}
-            <div class="col-lg-6 d-flex justify-content-end align-items-baseline">
-                <button type="button" class="btn btn-success mr-1">Completed</button>
-                {# {% url 'update' %}  | {% url 'delete' %}#}
-                <a href="{% url 'update' todo.id %}" type="button" class="btn btn-primary ml-1 mr-1">Update</a>
-                <a href="{% url 'delete' todo.id %}" type="button" class="btn btn-danger ml-1">Delete</a>
-            </div>
+            {% else %}
+                <p class="h6 font-weight-bold mb-0"
+                   style="text-decoration: line-through; color: gray">{{ todo.task }}</p>
+                <small id="created-text" style="text-decoration: line-through; color: gray">Created
+                    at: {{ todo.created_at }}</small>
+            {% endif %}
         </div>
-    {% endfor %}
+        {# FUNCTION BUTTONS #}
+        <div class="col-lg-6 d-flex" id="function_buttons">
+            {% if not todo.completed %}
+                <input type="submit" class="btn btn-success mr-1" value="Completed">
+            {% else %}
+                <button type="button" class="btn btn-success mr-1 invisible disabled">Completed</button>
+            {% endif %}
+            <a href="{% url 'update' todo.id %}" type="button" class="btn btn-primary ml-1 mr-1">Update</a>
+            <a href="{% url 'delete' todo.id %}" type="button" class="btn btn-danger ml-1">Delete</a>
+        </div>
+        </div>
+        {% endfor %}
+    </form>
 {% endblock %}
 
 {# TODO Completed with strikethrough. Javascript?  #}

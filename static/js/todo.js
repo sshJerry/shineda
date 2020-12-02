@@ -1,3 +1,3 @@
-$(".checkbox").click(function(){
-    $(this).toggleClass('checked')
-});
+$(function (){
+    $("#reload").submit();
+})

@@ -1,6 +1,6 @@
 {% extends 'todo/base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
+
 
 {% block title %}
     <title>Update</title>
@@ -16,33 +16,22 @@
 
         {# In-Header Body #}
         <div class="card-body">
-
-            {# In-Header Title #}
-            <div class="row">
-                <div class="col-10">
-                    <h5 class="card-title inline mb-1 ">Task</h5>
-                </div>
-                <div class="col-2">
-                    <h5 class="text-center mb-1">Completed</h5>
-                </div>
-            </div>
-
-
             {# TESTING Input and Button #}
             <form action="" method="post">
                 {% csrf_token %}
                 {# INPUT CHECK ROW #}
                 <div class="row">
-                    {# TEXT BOX #}
+                    {#z` TEXT BOX #}
                     <div class="col-10">
+                        <h5 class="card-title inline mb-1 ">{{ form.task.label }} </h5>
                         {{ form.task }}
                     </div>
                     {# CHECK BOX #}
                     <div class="col-2">
-                        {{ form.completed }}
+                        <h5 class="text-center inline mb-1">{{ form.completed.label }}</h5>
+                            {{ form.completed }}
                     </div>
                 </div>
-
                 {# BACK AND UPDATE ROW#}
                 <div class="row">
                     <div class="col mt-4">

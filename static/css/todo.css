@@ -1,6 +1,7 @@
 body {
     background-color: #fafafa;
 }
+
 #task-border {
     border: 1px solid silver !important;
     border-radius: 0.25rem;
@@ -8,6 +9,7 @@ body {
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
 }
+
 #created-text {
     font-size: 0.7rem;
     color: gray;
@@ -15,13 +17,22 @@ body {
 
 #task-deleted {
     color: #fe6993;
-    background-color: rgba(254,105,147,0.1);
+    background-color: rgba(254, 105, 147, 0.1);
     border-radius: 3px;
     padding: 0.2em;
     line-height: 2em;
 }
-@media (max-width: 768px) {
+
+@media (min-width: 769px) {
     #function_buttons{
-        align-self: start;
+        justify-content: end !important;
+        align-items: baseline !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #function_buttons {
+        justify-content: start !important;
+        align-items: baseline !important;
     }
 }

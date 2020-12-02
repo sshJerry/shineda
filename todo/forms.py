@@ -8,6 +8,8 @@ class TaskForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'task': forms.TextInput(attrs={'class': 'form-control'}),
-            'completed': forms.CheckboxInput(attrs={'style':'width:20px;height:20px;align-items:center;'}),
+            'task': forms.TextInput(attrs={'class': 'form-control',
+                                           'placeholder': 'Add Tasks'
+                                           }),
+            'completed': forms.CheckboxInput(attrs={'class': 'form-control'}),
         }
